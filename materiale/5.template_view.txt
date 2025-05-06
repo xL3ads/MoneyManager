@@ -1,0 +1,14 @@
+1. Crearea unei clase bazate pe TemplateView în views.py
+   - În fișierul `views.py` al aplicației `home`, definește o nouă clasă numită `HomeTemplateView`, care va extinde `TemplateView` din Django.
+   - Specifică atributul `template_name` pentru a indica fișierul HTML care va fi folosit ca șablon.
+
+2. Organizarea șabloanelor într-un folder separat
+   - În directorul `templates`, creează un subfolder numit `home`.
+   - În acest folder, adaugă un fișier HTML denumit `homepage.html` și completează-l cu conținutul dorit.
+
+3. Definirea unei rute în urls.py
+   - În fișierul `urls.py` al aplicației `home`, adaugă o nouă cale (`path`) care să asocieze clasa `HomeTemplateView` cu o anumită adresă URL.
+
+4. Actualizarea navbar-ului pentru a include noua pagină
+   - În fișierul `navbar.html`, aflat în folderul `templates`, adaugă un element `<a>` pentru navigație.
+   - Acest link trebuie să ducă la pagina `home_page`, folosind numele rutei definite în `urls.py`.
