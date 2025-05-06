@@ -11,7 +11,7 @@ class UserCreateView(CreateView):
     template_name = 'userextend/create_user.html'
     model = User
     form_class = UserForm
-    success_url = '/'
+    success_url = '/login/'
 
     def form_valid(self, form):
         if form.is_valid():
