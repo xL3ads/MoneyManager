@@ -1,36 +1,57 @@
 {% load static %}
-<nav class="navbar navbar-expand-lg" style="background: linear-gradient(90deg, #0f2027, #203a43, #2c5364);" data-bs-theme="dark">
+
+<nav class="navbar navbar-expand-lg" style="background: linear-gradient(90deg, #0f2027, #203a43, #2c5364);"
+     data-bs-theme="dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="{% url 'homepage' %}">
+        <a class="navbar-brand me-4" href="{% url 'homepage' %}">
             <img src="{% static '/images/logo.png' %}" width="55" height="55" alt="LogoMoneyManager">
-            <span class="ms-3" style="color: #ffffff; font-family: 'Roboto', sans-serif; font-weight: 550; line-height: 48px; font-size: 25px;">
+            <span class="ms-3"
+                  style="color: #ffffff; font-family: 'Roboto', sans-serif; font-weight: 550; line-height: 48px; font-size: 25px;">
                 Money Manager
             </span>
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
+        <ul class="navbar-nav ms-auto">
+            <li class="nav-item me-4">
+                <a class="nav-link" aria-current="page" href="{% url 'homepage' %}"
+                   style="color: #ffffff; font-weight: 550; font-size: 18px; line-height: 48px; font-family: 'Roboto', sans-serif;">Home</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav ms-auto">
+        <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: #ffffff; font-weight: 550; font-size: 18px; line-height: 48px; font-family: 'Roboto', sans-serif;">
+                Transactions
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="{% url 'add-transaction'%}">Add Transaction</a></li>
+                <li><a class="dropdown-item" href="{% url 'list-of-transactions'%}">All Transactions</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li>
+              </ul>
+        </ul>
+            </li>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
-                <li class="nav-item me-4">
-                    <a class="nav-link" aria-current="page" href="{% url 'homepage' %}" style="color: #ffffff; font-weight: 550; font-size: 18px; line-height: 48px; font-family: 'Roboto', sans-serif;">Home</a>
-                </li>
-                <li class="nav-item me-4">
-                    <a class="nav-link" href="{% url 'login' %}" style="color: #ffffff; font-weight: 550; font-size: 18px; line-height: 48px; font-family: 'Roboto', sans-serif;">Login</a>
-                </li>
-                <li class="nav-item me-4">
-                    <a class="nav-link" href="{% url 'create-user' %}" style="color: #ffffff; font-weight: 550; font-size: 18px; line-height: 48px; font-family: 'Roboto', sans-serif;">Sign-Up</a>
-                </li>
+                {% if user.is_authenticated %}
+                    <li>
+                        <form method="POST" action="{% url "logout" %}">
+                            {% csrf_token %}
+                            <button type="submit" class="btn nav-link px-2 py-1"
+                                    style="background-color: #dc3545; color: white; font-weight: 550; font-size: 18px; font-family: 'Roboto', sans-serif; border: none;">
+                                Logout {{ user.username|title }}</button>
+                        </form>
+                    </li>
+                {% else %}
+                    <li class="nav-item me-4">
+                        <a class="nav-link" href="{% url 'login' %}"
+                           style="color: #ffffff; font-weight: 550; font-size: 18px; line-height: 48px; font-family: 'Roboto', sans-serif;">Login</a>
+                    </li>
+                    <li class="nav-item me-4">
+                        <a class="nav-link" href="{% url 'create-user' %}"
+                           style="color: #ffffff; font-weight: 550; font-size: 18px; line-height: 48px; font-family: 'Roboto', sans-serif;">Sign-Up</a>
+                    </li>
+                {% endif %}
             </ul>
         </div>
     </div>
 </nav>
-
-<style>
-    .navbar-nav .nav-link:hover {
-        color: #536dfe; /* Hover color pe linkuri */
-    }
-</style>
 

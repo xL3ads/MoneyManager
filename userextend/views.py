@@ -17,8 +17,9 @@ class UserCreateView(CreateView):
         if form.is_valid():
             new_user = form.save(commit=False)
             new_user.first_name = new_user.first_name.lower().title()
-            new_user.last_name = new_user.first_name.lower().title()
+            new_user.last_name = new_user.last_name.lower().title()
 
-            new_user.username = f"{new_user.first_name[0].lower()}_{new_user.last_name.replace(" ", "_").lower()}_{random.randint(100000, 999999)}"
+            new_user.username = f"{new_user.first_name[0].lower()}{new_user.last_name.replace(" ", "_").lower()}_{random.randint(100000, 999999)}"
             new_user.save()
         return super(UserCreateView, self).form_valid(form)
+
