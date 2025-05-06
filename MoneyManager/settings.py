@@ -39,6 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'homepage',
     'userextend',
+    'categories',
+    'dashboard',
+    'transactions',
 
 ]
 

@@ -26,5 +26,8 @@ urlpatterns = [
     path('', include('django.contrib.auth.urls')),
     path('', include('homepage.urls')),
     path('', include('userextend.urls')),
+    path('',include('dashboard.urls')),
+    path('',include('categories.urls')),
+    path('',include('transactions.urls')),
 
 ]
