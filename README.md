@@ -7,6 +7,9 @@ Aplicatii curente:
       - Poti adauga tranzactii
       - Poti vedea lista de tranzactii
   - Dashbord
+      - Poti vedea venitul
+      - Poti vedea cheltuielile
+      - Poti vedea suma totala dupa cheltuieli
   - Category
       - Poti adauga categorii
       - Poti vedea lista de categorii
