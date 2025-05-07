@@ -11,7 +11,7 @@ class TransactionForm(forms.ModelForm):
         fields = ['category', 'amount', 'date', 'description']
 
         widgets = {
-            'category': forms.RadioSelect(attrs={'class': 'form-control' }),
+            'category': forms.Select(attrs={'class': 'form-control' }),
             'amount': forms.NumberInput(attrs={'class': 'form-control', 'placeholder': 'Amount of money'}),
             'description': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Description'}),
             'date': forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}),

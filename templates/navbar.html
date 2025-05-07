@@ -17,18 +17,38 @@
             </li>
         </ul>
         <ul class="navbar-nav ms-auto">
-        <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: #ffffff; font-weight: 550; font-size: 18px; line-height: 48px; font-family: 'Roboto', sans-serif;">
-                Transactions
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="{% url 'add-transaction'%}">Add Transaction</a></li>
-                <li><a class="dropdown-item" href="{% url 'list-of-transactions'%}">All Transactions</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
-              </ul>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                   aria-expanded="false"
+                   style="color: #ffffff; font-weight: 550; font-size: 18px; line-height: 48px; font-family: 'Roboto', sans-serif;">
+                    Transactions
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="{% url 'add-transaction' %}">Add Transaction</a></li>
+                    <li><a class="dropdown-item" href="{% url 'list-of-transactions' %}">All Transactions</a></li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
         </ul>
-            </li>
+        <ul class="navbar-nav ms-auto">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                   aria-expanded="false"
+                   style="color: #ffffff; font-weight: 550; font-size: 18px; line-height: 48px; font-family: 'Roboto', sans-serif;">
+                    Category
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="{% url 'add-category' %}">Add Category</a></li>
+                    <li><a class="dropdown-item" href="{% url 'list-category' %}">All Category</a></li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+        </ul>
+        </li>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
                 {% if user.is_authenticated %}
