@@ -8,3 +8,5 @@ Aplicatii curente:
       - Poti vedea lista de tranzactii
   - Dashbord
   - Category
+      - Poti adauga categorii
+      - Poti vedea lista de categorii
