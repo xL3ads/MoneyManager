@@ -11,40 +11,49 @@
             </span>
         </a>
         {% if user.is_authenticated %}
-        <ul class="navbar-nav ms-auto">
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                   aria-expanded="false"
-                   style="color: #ffffff; font-weight: 550; font-size: 18px; line-height: 48px; font-family: 'Roboto', sans-serif;">
-                    Transactions
-                </a>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="{% url 'add-transaction' %}">Add Transaction</a></li>
-                    <li><a class="dropdown-item" href="{% url 'list-of-transactions' %}">All Transactions</a></li>
-                    <li>
-                        <hr class="dropdown-divider">
-                    </li>
-                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                </ul>
-        </ul>
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url "dashboard" %}" role="button"
+                       aria-expanded="false"
+                       style="color: #ffffff; font-weight: 550; font-size: 18px; line-height: 48px; font-family: 'Roboto', sans-serif;">
+                        Dashboard
+                    </a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                       aria-expanded="false"
+                       style="color: #ffffff; font-weight: 550; font-size: 18px; line-height: 48px; font-family: 'Roboto', sans-serif;">
+                        Transactions
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="{% url 'add-transaction' %}">Add Transaction</a></li>
+                        <li><a class="dropdown-item" href="{% url 'list-of-transactions' %}">All Transactions</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+            </ul>
 
-        <ul class="navbar-nav ms-auto">
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                   aria-expanded="false"
-                   style="color: #ffffff; font-weight: 550; font-size: 18px; line-height: 48px; font-family: 'Roboto', sans-serif;">
-                    Category
-                </a>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="{% url 'add-category' %}">Add Category</a></li>
-                    <li><a class="dropdown-item" href="{% url 'list-category' %}">All Category</a></li>
-                    <li>
-                        <hr class="dropdown-divider">
-                    </li>
-                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                </ul>
-            </li>
-        </ul>{% endif %}
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                       aria-expanded="false"
+                       style="color: #ffffff; font-weight: 550; font-size: 18px; line-height: 48px; font-family: 'Roboto', sans-serif;">
+                        Category
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="{% url 'add-category' %}">Add Category</a></li>
+                        <li><a class="dropdown-item" href="{% url 'list-category' %}">All Category</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                </li>
+            </ul>{% endif %}
 
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
@@ -53,7 +62,7 @@
                         <form method="POST" action="{% url "logout" %}">
                             {% csrf_token %}
                             <button type="submit" class="btn nav-link px-2 py-1"
-                                    style="background-color: #dc3545; color: white; font-weight: 550; font-size: 18px; font-family: 'Roboto', sans-serif; border: none;">
+                                    style="background: linear-gradient(90deg, #43788f, #305b6e); color: white; font-weight: 550; font-size: 18px; font-family: 'Roboto', sans-serif;">
                                 Logout {{ user.username|title }}</button>
                         </form>
                     </li>

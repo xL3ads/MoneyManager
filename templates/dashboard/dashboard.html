@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}MoneyManager | Dashboard{% endblock %}
+
+{% block content %}
+    <br>
+    <div class="container-lg"> <br>
+        <div class="row">
+            <div class="col-md-8 offset-2">
+                <h3>{{ full_name }} Profile</h3>
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Total Income</th>
+                            <th>Total Expenses</th>
+                            <th>Total Money</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{ total_income }}</td>
+                            <td>{{ total_expense }}</td>
+                            <td>{{ total_money }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}
