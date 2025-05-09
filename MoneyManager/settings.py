@@ -9,6 +9,7 @@ https://docs.djangoproject.com/en/5.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
+from userextend.mypass import parola_mea
 
 from pathlib import Path
 
@@ -42,7 +43,6 @@ INSTALLED_APPS = [
     'categories',
     'dashboard',
     'transactions',
-
 ]
 
 MIDDLEWARE = [
@@ -132,3 +132,13 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_URL = '/login/'
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/login/'
+
+#SMTP - SIMPLE MAIL TRANSFER PROTOCOL
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'talageorge44@gmail.com'
+EMAIL_HOST_PASSWORD = parola_mea
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER

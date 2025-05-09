@@ -16,6 +16,18 @@ class UserForm(UserCreationForm):
         model = User
         fields = ['first_name', 'last_name', 'email']
 
+    def clean(self):
+        cleaned_data = self.cleaned_data
+
+        # Validare pentru email. In cazul in care exista un utilizator cu acelasi EMAIL
+        get_email = cleaned_data.get('email')
+
+        user_email_filter = User.objects.filter(email=get_email)
+        if user_email_filter:
+            msg = 'This email is already in use.'
+            self.add_error('email', msg)
+        # ------------------------------------------------------------------------------
+
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['first_name'].widget.attrs.update({'class':'form-control', 'placeholder':'First Name'})
@@ -23,3 +35,4 @@ class UserForm(UserCreationForm):
         self.fields['email'].widget.attrs.update({'class':'form-control', 'placeholder':'Email'})
         self.fields['password1'].widget.attrs.update({'class':'form-control', 'placeholder':'Password'})
         self.fields['password2'].widget.attrs.update({'class':'form-control', 'placeholder':'Confirm Password'})
+

@@ -1,0 +1,1 @@
+parola_mea = "wbxy emfw cgue ibbd"

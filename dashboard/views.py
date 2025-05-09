@@ -10,11 +10,10 @@ from transactions.models import UserTransactions
 @login_required
 def dashboard_view(request):
 
-
-    incomes = UserTransactions.objects.filter(category__is_income= True) # Imi filtreaza doar acele tranzactii care au category.is_income = True
+    incomes = UserTransactions.objects.filter(user= request.user, category__is_income= True) # Imi filtreaza doar acele tranzactii care au category.is_income = True
     total_income = sum(income.amount for income in incomes) # Fac suma tuturor transactiilor de tip "income"
 
-    expenses = UserTransactions.objects.filter(category__is_income= False) # Imi filtreaza doar acele tranzactii care au category.is_income = False
+    expenses = UserTransactions.objects.filter(user= request.user, category__is_income= False) # Imi filtreaza doar acele tranzactii care au category.is_income = False
     total_expense = sum(expense.amount for expense in expenses) # Fac suma tuturor tranzactiilor de tip "expenses"
 
     total_money = total_income - total_expense
