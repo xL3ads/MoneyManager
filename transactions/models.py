@@ -1,8 +1,9 @@
+from random import choices
+
 from django.contrib.auth.models import User
 from django.db import models
 
 from categories.models import UserCategory
-
 
 # Create your models here.
 
@@ -16,7 +17,9 @@ class UserTransactions(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
+    # Aici o sa stocam din variabila date luna si anu unde mai departe o sa le folosim pentru statisitici
+    month = models.IntegerField(null = True, blank = True)
+    year = models.IntegerField(null = True, blank = True)
+
     def __str__(self):
         return f"Transaction: {self.amount} - {self.category.name}"
-
-

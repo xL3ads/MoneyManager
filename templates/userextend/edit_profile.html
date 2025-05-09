@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}MoneyManager | Edit Profile{% endblock %}
+
+{% block content %}
+    <div class="container-fluid">
+        <br>
+        <div class="row">
+            <div class="col-md-8 offset-2">
+                <form method="POST">
+                    {% csrf_token %}
+                    {{ form }}
+                <div class="text-center mt-3">
+                    <button type="submit" class="btn btn-outline-success">SAVE</button>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

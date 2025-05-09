@@ -6,6 +6,7 @@ Aplicatii curente:
   - Transactions
       - Poti adauga tranzactii
       - Poti vedea lista de tranzactii
+      - Data si luna sunt stocate separat in baza de date
   - Dashbord
       - Poti vedea venitul
       - Poti vedea cheltuielile
@@ -13,3 +14,5 @@ Aplicatii curente:
   - Category
       - Poti adauga categorii
       - Poti vedea lista de categorii
+  - Sistem de autentificare si creare cont
+  - Utilizatorul poate sa isi vada profilul si sa il editeze

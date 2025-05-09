@@ -30,10 +30,6 @@
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="{% url 'add-transaction' %}">Add Transaction</a></li>
                         <li><a class="dropdown-item" href="{% url 'list-of-transactions' %}">All Transactions</a></li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
                     </ul>
             </ul>
 
@@ -47,10 +43,6 @@
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="{% url 'add-category' %}">Add Category</a></li>
                         <li><a class="dropdown-item" href="{% url 'list-category' %}">All Category</a></li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
                     </ul>
                 </li>
             </ul>{% endif %}
@@ -58,14 +50,22 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
                 {% if user.is_authenticated %}
-                    <li>
-                        <form method="POST" action="{% url "logout" %}">
-                            {% csrf_token %}
-                            <button type="submit" class="btn nav-link px-2 py-1"
-                                    style="background: linear-gradient(90deg, #43788f, #305b6e); color: white; font-weight: 550; font-size: 18px; font-family: 'Roboto', sans-serif;">
-                                Logout {{ user.username|title }}</button>
-                        </form>
-                    </li>
+                        <div class="btn-group">
+                            <a type="button" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style="color: #ffffff; font-weight: 550; font-size: 18px; line-height: 48px; font-family: 'Roboto', sans-serif;">
+                                Profile
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end">
+                                <li><a class="dropdown-item" href="{% url "view-profile" user.id%}">View Profile</a></li>
+                                <li><a class="dropdown-item" href="{% url "edit-profile" user.id%}">Edit Profile</a></li>
+                                <li>
+                                    <form method="POST" action="{% url "logout" %}">
+                                        {% csrf_token %}
+                                        <button class="dropdown-item" type="submit">Logout</button>
+                                    </form>
+                                </li>
+                            </ul>
+                        </div>
+
                 {% else %}
                     <li class="nav-item me-4">
                         <a class="nav-link" href="{% url 'login' %}"

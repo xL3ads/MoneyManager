@@ -27,8 +27,15 @@ class TransactionCreateView(LoginRequiredMixin, CreateView):
         return data
 
     def form_valid(self, form):
-        form.instance.user = self.request.user  # Setează utilizatorul curent
+        if form.is_valid():
+            new_transaction = form.save(commit=False)
+            new_transaction.user = self.request.user
+
+            data = new_transaction.date # creez un obiect data care salveaza data din baza de date
+            new_transaction.month = data.month # salvez luna din obiectul data
+            new_transaction.year = data.year # salvez anul din obiectul data
         return super().form_valid(form)
+
 
 class TransactionListView(LoginRequiredMixin, ListView):
     template_name = 'transactions/list_of_transactions.html'
