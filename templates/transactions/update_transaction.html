@@ -1,10 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
 
-</body>
-</html>
+{% block title %}MoneyManager | Add Transaction{% endblock %}
+
+{% block content %}
+    <div class="container-fluid">
+        <br>
+        <div class="row">
+            <div class="col-md-8 offset-2">
+                <h3>
+                    Edit {{ usertransactions.category.name }} Transaction
+                </h3>
+                <br>
+                <form method="POST">
+                    {% csrf_token %}
+                    {{ form }}
+                    <button type="submit" class="btn btn-outline-success">SAVE</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -34,3 +34,14 @@ class TransactionForm(forms.ModelForm):
             self.add_error('date', msg)
 
         return cleaned_data
+
+class TransactionUpdateForm(forms.ModelForm):
+    class Meta:
+        model = UserTransactions
+        fields = ['category', 'amount', 'description']
+
+        widgets = {
+            'category': forms.Select(attrs={'class': 'form-control' }),
+            'amount': forms.NumberInput(attrs={'class': 'form-control', 'placeholder': 'Amount of money'}),
+            'description': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Description'}),
+        }

@@ -4,10 +4,10 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
 from django.shortcuts import render
 from django.views import View
-from django.views.generic import ListView, CreateView
+from django.views.generic import ListView, CreateView, UpdateView, DetailView, DeleteView
 
 from categories.models import UserCategory
-from transactions.forms import TransactionForm
+from transactions.forms import TransactionForm, TransactionUpdateForm
 from transactions.models import UserTransactions
 
 
@@ -50,4 +50,21 @@ class TransactionListView(LoginRequiredMixin, ListView):
         data = super().get_context_data(**kwargs)
         data['categories'] = UserCategory.objects.all()
         return data
+
+
+class TransactionUpdateView(LoginRequiredMixin, UpdateView):
+    template_name = 'transactions/update_transaction.html'
+    model = UserTransactions
+    form_class = TransactionUpdateForm
+    success_url = '/list_of_transactions/'
+
+class TransactionDetailView(LoginRequiredMixin, DetailView):
+    template_name = 'transactions/details_transaction.html'
+    model = UserTransactions
+
+class TransactionDeleteView(LoginRequiredMixin, DeleteView):
+    template_name = 'transactions/delete_transaction.html'
+    model = UserTransactions
+    success_url = '/list_of_transactions/'
+
 
