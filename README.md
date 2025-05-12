@@ -6,7 +6,8 @@ Aplicatii curente:
   - Transactions
       - Poti adauga tranzactii
       - Poti vedea lista de tranzactii
-      - Data si luna sunt stocate separat in baza de date
+      - Data si luna sunt stocate separat in baza de date pentru statistici
+      - Fie care tranzactie se poate vedea in detaliu, edita sau sterge
   - Dashbord
       - Poti vedea venitul
       - Poti vedea cheltuielile
