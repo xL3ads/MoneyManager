@@ -50,7 +50,11 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
                 {% if user.is_authenticated %}
-                        <div class="btn-group">
+
+                        <div class="btn-group align-items-center" style="gap: 10px;">
+                            <span style="color: #ffffff; font-weight: 550; font-size: 18px; line-height: 48px; font-family: 'Roboto', sans-serif;">
+                                Balance: {{ total_money }}
+                            </span>
                             <a type="button" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style="color: #ffffff; font-weight: 550; font-size: 18px; line-height: 48px; font-family: 'Roboto', sans-serif;">
                                 Profile
                             </a>
