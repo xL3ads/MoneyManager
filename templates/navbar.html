@@ -53,10 +53,10 @@
 
                         <div class="btn-group align-items-center" style="gap: 10px;">
                             <span style="color: #ffffff; font-weight: 550; font-size: 18px; line-height: 48px; font-family: 'Roboto', sans-serif;">
-                                Balance: {{ total_money }}
+                                Balance: {{ total_money }} RON
                             </span>
                             <a type="button" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style="color: #ffffff; font-weight: 550; font-size: 18px; line-height: 48px; font-family: 'Roboto', sans-serif;">
-                                Profile
+                                {{ full_name }}
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end">
                                 <li><a class="dropdown-item" href="{% url "view-profile" user.id%}">View Profile</a></li>

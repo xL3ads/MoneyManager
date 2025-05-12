@@ -19,6 +19,12 @@ class TransactionCreateView(LoginRequiredMixin, CreateView):
     form_class = TransactionForm
     success_url = '/'
 
+    # Trimit userul in formular ca sa imi foloseasca doar acele categorii pe care le a creat userul
+    def get_form_kwargs(self):
+        kwargs = super().get_form_kwargs()
+        kwargs['user'] = self.request.user
+        return kwargs
+
     def get_context_data(self, **kwargs):
         data = super().get_context_data(**kwargs)
         data['user'] = self.request.user

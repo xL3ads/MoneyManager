@@ -3,6 +3,7 @@ import datetime
 
 from django.views.generic import CreateView
 
+from categories.models import UserCategory
 from transactions.models import UserTransactions
 
 class TransactionForm(forms.ModelForm):
@@ -17,6 +18,14 @@ class TransactionForm(forms.ModelForm):
             'date': forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}),
         }
 
+    # Vreau sa imi ia doar acele categorii create de utilizator
+    def __init__(self, *args, **kwargs):
+        user = kwargs.pop('user')
+        super().__init__(*args, **kwargs)
+        if user:
+            self.fields['category'].queryset = UserCategory.objects.filter(user=user)
+        else:
+            self.fields['category'].queryset = UserCategory.objects.none()
 
     def clean(self):
         cleaned_data = self.cleaned_data
