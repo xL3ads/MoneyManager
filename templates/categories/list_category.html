@@ -12,6 +12,7 @@
                         <tr>
                             <th>Name</th>
                             <th>Type</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -19,6 +20,9 @@
                             <tr>
                                 <td>{{ category.name }}</td>
                                 <td>{{ category.get_is_income_display }}</td>
+                                <td>
+                                    <a href="{% url 'delete-category' category.id %}">Delete</a>
+                                </td>
                             </tr>
                         {% endfor %}
                     </tbody>

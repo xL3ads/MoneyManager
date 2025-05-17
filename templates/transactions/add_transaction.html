@@ -1,4 +1,6 @@
 {% extends 'base.html' %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
 
 {% block title %}MoneyManager | Add Transaction{% endblock %}
 
@@ -7,11 +9,24 @@
         <br>
         <div class="row">
             <div class="col-md-8 offset-2">
-                <form method="POST">
-                    {% csrf_token %}
-                    {{ form }}
-                    <button type="submit" class="btn btn-outline-success">SAVE</button>
-                </form>
+                <div class="card shadow-sm mt-2">
+                    <div class="card-header text-dark border-0 text-center geo-color-bar">
+                        <span class="title-geo" style="color: white">
+                            Add a new transaction
+                        </span>
+                    </div>
+                    <form method="POST">
+                    <div class="card-body mb-3">
+                            {% csrf_token %}
+                            {{ form }}
+
+                    </div>
+                        <div class="text-center mb-1">
+                            <button type="submit" class="btn btn-primary">SAVE</button>
+                        </div>
+                    </form>
+                </div>
+
             </div>
         </div>
     </div>

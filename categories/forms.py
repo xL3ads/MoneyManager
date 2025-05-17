@@ -3,7 +3,7 @@ from django import forms
 from categories.models import UserCategory
 
 
-class CategoryFrom(forms.ModelForm):
+class CategoryForm(forms.ModelForm):
     class Meta:
         model = UserCategory
         fields = '__all__'

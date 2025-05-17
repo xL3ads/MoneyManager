@@ -1,0 +1,71 @@
+@font-face {
+    font-family: 'Tech';
+    src: url('../fonts/Inter-VariableFont_opsz,wght.ttf') format('truetype');
+    font-weight: 100 900;
+    font-style: normal;
+}
+
+.text-general-geo{
+    font-family: 'Tech', sans-serif;
+}
+
+.text-navbar-mm-geo{
+    color: white;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 48px;
+    font-family: 'Tech', sans-serif;
+}
+
+.text-navbar-geo{
+    color: white;
+    font-weight: 250;
+    font-size: 20px;
+    line-height: 40px;
+    font-family: 'Tech', sans-serif;
+}
+
+
+.text-navbar-dropdown-geo{
+    color: white;
+    font-weight: 100;
+    font-size: 15px;
+    line-height: 40px;
+    font-family: 'Tech', sans-serif;
+}
+
+/*Textul din fiecare tabel*/
+.text-tabele-geo{
+    color: black;
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 40px;
+    font-family: 'Tech', sans-serif;
+}
+
+/*Titlul fiecarui tabel*/
+.text-tabele-titlu-geo{
+    color: black;
+    font-size: 15px;
+    line-height: 40px;
+    font-family: 'Tech', sans-serif;
+}
+
+
+/*Title text*/
+.title-geo{
+    color: black;
+    font-size: 35px;
+    font-weight: bold;
+    font-family: 'Tech', sans-serif;
+}
+
+
+
+.nav-bar-geo{
+    background: linear-gradient(90deg, #0d4743, #128e84, #0d4743);
+}
+
+.geo-color-bar{
+    background: linear-gradient(270deg, #128e84, #0d4743, #128e84);
+}

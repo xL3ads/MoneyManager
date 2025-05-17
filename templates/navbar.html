@@ -1,83 +1,77 @@
 {% load static %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
 
-<nav class="navbar navbar-expand-lg" style="background: linear-gradient(90deg, #0f2027, #203a43, #2c5364);"
-     data-bs-theme="dark">
+<nav class="navbar navbar-expand-lg nav-bar-geo" data-bs-theme="dark">
     <div class="container-fluid">
-        <a class="navbar-brand me-4" href="{% url 'homepage' %}">
-            <img src="{% static '/images/logo.png' %}" width="55" height="55" alt="LogoMoneyManager">
-            <span class="ms-3"
-                  style="color: #ffffff; font-family: 'Roboto', sans-serif; font-weight: 550; line-height: 48px; font-size: 25px;">
-                Money Manager
-            </span>
-        </a>
-        {% if user.is_authenticated %}
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url "dashboard" %}" role="button"
-                       aria-expanded="false"
-                       style="color: #ffffff; font-weight: 550; font-size: 18px; line-height: 48px; font-family: 'Roboto', sans-serif;">
-                        Dashboard
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav me-auto">
+                <li>
+                    <a class="navbar-brand" href="{% url 'homepage' %}">
+                    <img src="{% static '/images/logo.png' %}" width="55" height="55" alt="LogoMoneyManager">
+                    <span class="ms-3 text-navbar-mm-geo">
+                        Money Manager
+                    </span>
                     </a>
                 </li>
-            </ul>
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                       aria-expanded="false"
-                       style="color: #ffffff; font-weight: 550; font-size: 18px; line-height: 48px; font-family: 'Roboto', sans-serif;">
-                        Transactions
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="{% url 'add-transaction' %}">Add Transaction</a></li>
-                        <li><a class="dropdown-item" href="{% url 'list-of-transactions' %}">All Transactions</a></li>
-                    </ul>
-            </ul>
-
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                       aria-expanded="false"
-                       style="color: #ffffff; font-weight: 550; font-size: 18px; line-height: 48px; font-family: 'Roboto', sans-serif;">
-                        Category
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="{% url 'add-category' %}">Add Category</a></li>
-                        <li><a class="dropdown-item" href="{% url 'list-category' %}">All Category</a></li>
-                    </ul>
-                </li>
-            </ul>{% endif %}
-
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
                 {% if user.is_authenticated %}
-
-                        <div class="btn-group align-items-center" style="gap: 10px;">
-                            <span style="color: #ffffff; font-weight: 550; font-size: 18px; line-height: 48px; font-family: 'Roboto', sans-serif;">
-                                Balance: {{ total_money }} RON
-                            </span>
-                            <a type="button" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style="color: #ffffff; font-weight: 550; font-size: 18px; line-height: 48px; font-family: 'Roboto', sans-serif;">
-                                {{ full_name }}
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-end">
-                                <li><a class="dropdown-item" href="{% url "view-profile" user.id%}">View Profile</a></li>
-                                <li><a class="dropdown-item" href="{% url "edit-profile" user.id%}">Edit Profile</a></li>
-                                <li>
-                                    <form method="POST" action="{% url "logout" %}">
-                                        {% csrf_token %}
-                                        <button class="dropdown-item" type="submit">Logout</button>
-                                    </form>
-                                </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-navbar-geo" href="{% url "dashboard" %}" role="button" aria-expanded="false">
+                            Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-navbar-geo" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Transactions
+                        </a>
+                            <ul class="dropdown-menu text-navbar-dropdown-geo">
+                                <li><a class="dropdown-item" href="{% url 'add-transaction' %}">Create Transaction</a></li>
+                                <li><a class="dropdown-item" href="{% url 'list-of-transactions' %}">Transactions History</a></li>
                             </ul>
-                        </div>
-
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-navbar-geo" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Category
+                        </a>
+                            <ul class="dropdown-menu text-navbar-dropdown-geo">
+                                <li><a class="dropdown-item" href="{% url 'add-category' %}">Create Category</a></li>
+                                <li><a class="dropdown-item" href="{% url 'list-category' %}">Category List</a></li>
+                            </ul>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ms-auto align-items-center">
+                {% if user.is_authenticated %}
+                    <li>
+                        <span class="text-navbar-geo">
+                            Balance: {{ total_money|floatformat:0 }} RON
+                        </span>
+                    </li>
+                    <li>
+                        <a type="button" class="nav-link dropdown-toggle text-navbar-geo" data-bs-toggle="dropdown" aria-expanded="false">
+                            {{ full_name }}
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end text-navbar-dropdown-geo">
+                            <li><a class="dropdown-item" href="{% url "view-profile" user.id%}">View Profile</a></li>
+                            <li><a class="dropdown-item" href="{% url "edit-profile" user.id%}">Edit Profile</a></li>
+                            <li>
+                                <form method="POST" action="{% url "logout" %}">
+                                    {% csrf_token %}
+                                    <button class="dropdown-item" type="submit">Logout</button>
+                                </form>
+                            </li>
+                        </ul>
+                    </li>
                 {% else %}
                     <li class="nav-item me-4">
-                        <a class="nav-link" href="{% url 'login' %}"
-                           style="color: #ffffff; font-weight: 550; font-size: 18px; line-height: 48px; font-family: 'Roboto', sans-serif;">Login</a>
+                        <a class="nav-link text-navbar-geo" href="{% url 'login' %}">Login</a>
                     </li>
                     <li class="nav-item me-4">
-                        <a class="nav-link" href="{% url 'create-user' %}"
-                           style="color: #ffffff; font-weight: 550; font-size: 18px; line-height: 48px; font-family: 'Roboto', sans-serif;">Sign-Up</a>
+                        <a class="nav-link text-navbar-geo" href="{% url 'create-user' %}">Sign-Up</a>
                     </li>
                 {% endif %}
             </ul>

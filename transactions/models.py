@@ -22,4 +22,8 @@ class UserTransactions(models.Model):
     year = models.IntegerField(null = True, blank = True)
 
     def __str__(self):
-        return f"Transaction: {self.amount} - {self.category.name}"
+        # Daca exista categoria ( in cazul in care se sterge o categorie poate sa nu mai exista acea categorie )
+        if self.category: # 1
+            return f"Transaction: {self.amount} RON - {self.category.name}"
+        else: # 2
+            return f"Transaction: {self.amount} RON - Category: None"
