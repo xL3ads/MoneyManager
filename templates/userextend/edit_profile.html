@@ -1,4 +1,6 @@
 {% extends 'base.html' %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
 
 {% block title %}MoneyManager | Edit Profile{% endblock %}
 
@@ -7,13 +9,24 @@
         <br>
         <div class="row">
             <div class="col-md-8 offset-2">
-                <form method="POST">
-                    {% csrf_token %}
-                    {{ form }}
-                <div class="text-center mt-3">
-                    <button type="submit" class="btn btn-outline-success">SAVE</button>
+                <div class="card shadow-sm mt-2">
+                    <div class="card-header text-dark border-0 text-center geo-color-bar">
+                        <span class="title-geo" style="color: white">
+                            Edit {{ user.first_name }}'s Profile
+                        </span>
+                    </div>
+                    <form method="POST">
+                    <div class="card-body mb-3 text-general-geo">
+                            {% csrf_token %}
+                            {{ form }}
+
+                    </div>
+                        <div class="text-center mb-1 text-general-geo">
+                            <button type="submit" class="btn btn-outline-success">SAVE</button>
+                        </div>
+                    </form>
                 </div>
-                </form>
+
             </div>
         </div>
     </div>

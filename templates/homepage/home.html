@@ -1,15 +1,168 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}Money Manager App{% endblock %}
 
 {% block content %}
-    <div class="container-fluid"><br>
-        <div class="row">
+    <!-- Hero Section with Bootstrap -->
+    <div class="container-fluid p-0 text-general-geo">
+        <div class="position-relative text-white">
+            <img src="{% static 'images/hero-image.jpg' %}" class="img-fluid w-100"
+                 style="height: 100vh; object-fit: cover;" alt="Hero Image">
 
-            <div class="col-md-8 offset-2">
-                <h3>Aici se va pune prezentarea aplicatiei</h3>
+            <!-- Overlay pentru mai mult contrast -->
+            <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-50"></div>
 
+            <!-- Text Overlay -->
+            <div class="position-absolute top-50 start-50 translate-middle text-center px-3">
+                <h1 class="display-3 fw-bold">Manage Your Money Smartly</h1>
+                <p class="lead">Take control of your expenses and reach your financial goals.</p>
             </div>
         </div>
     </div>
+
+    <!-- Why Choose Us? -->
+    <section class="py-5 bg-light text-center text-general-geo">
+        <div class="container">
+            <h2 class="fw-bold mb-4">Why Choose Money Manager App?</h2>
+            <p class="lead text-muted">
+                Our app helps you track income, expenses, and savings. Easily visualize your financial progress and
+                manage your budget in a user-friendly interface.
+            </p>
+        </div>
+    </section>
+
+    <!-- Key Features Section -->
+    <section id="key-features" class="py-5 text-general-geo" style="background: #d3d2d2">
+        <div class="container">
+            <p class="text-center text-muted mb-1">All-in-one money management solution</p>
+            <h2 class="fw-bold mb-4 text-center">Key Features</h2>
+            <div class="row ">
+
+                <!-- Dashboard Features -->
+                <div class="col-md-4 mt-2">
+                    <div class="card border-0 shadow h-100 d-flex flex-column">
+                        <div class="text-center mt-4">
+                            <i class="bi bi-bar-chart-line-fill fs-1" style="color: #6366F1"></i>
+                        </div>
+
+                        <h3 class="fw-bold text-center">Dashboard</h3>
+                        <p class="text-muted small text-center">Essential tools to manage your finances smartly.</p>
+                        <div class="card-body">
+                            <ul class="list-unstyled">
+                                <li>
+                                    <i class="bi bi-check-circle-fill me-2" style="color: #6366F1"></i>
+                                    <strong>Filter by Month and Year:</strong> Overview of income, expenses, and
+                                    savings.
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="text-center mb-3 mt-auto">
+                            <a href="#" class="btn btn-success btn-sm border-0 rounded-pill px-4" style="background: #6366F1">Try this feature</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Transactions Features -->
+                <div class="col-md-4 mt-2">
+                    <div class="card border-0 shadow h-100 d-flex flex-column">
+                        <!-- Icon sus -->
+                        <div class="text-center mt-4">
+                            <i class="bi bi-cash-stack fs-1" style="color: #10B981"></i>
+                        </div>
+
+                        <!-- Titlu -->
+                        <h3 class="fw-bold text-center">Transactions</h3>
+                        <p class="text-muted small text-center">Track, edit and review all your expenses with ease.</p>
+
+                        <!-- Conținut -->
+                        <div class="card-body">
+                            <ul class="list-unstyled">
+                                <li class="mb-2">
+                                    <i class="bi bi-check-circle-fill me-2" style="color: #10B981"></i>
+                                    <strong>Create Transactions:</strong> Add income or expense records with category,
+                                    amount, and date.
+                                </li>
+                                <li class="mb-2">
+                                    <i class="bi bi-check-circle-fill me-2" style="color: #10B981"></i>
+                                    <strong>Edit Transactions:</strong> Modify existing entries anytime.
+                                </li>
+                                <li class="mb-2">
+                                    <i class="bi bi-check-circle-fill me-2" style="color: #10B981"></i>
+                                    <strong>View Transaction List:</strong> Browse all your transactions in a clean
+                                    table.
+                                </li>
+                                <li class="mb-2">
+                                    <i class="bi bi-check-circle-fill me-2" style="color: #10B981"></i>
+                                    <strong>Delete Transactions:</strong> Remove any record you don’t need anymore.
+                                </li>
+                                <li>
+                                    <i class="bi bi-check-circle-fill me-2" style="color: #10B981"></i>
+                                    <strong>View Transaction Details:</strong> See details like creation and update
+                                    timestamps.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Categories Features -->
+                <div class="col-md-4 mt-2">
+                    <div class="card border-0 shadow h-100 d-flex flex-column">
+                        <!-- Icon sus -->
+                        <div class="text-center mt-4">
+                            <i class="bi bi-tags-fill fs-1" style="color: 	#F59E0B"></i>
+                        </div>
+
+                        <!-- Titlu -->
+                        <h3 class="fw-bold text-center">Categories</h3>
+                        <p class="text-muted small text-center">Organize your transactions by creating and managing categories for easy tracking.</p>
+
+                        <!-- Conținut -->
+                        <div class="card-body">
+                            <ul class="list-unstyled">
+                                <li class="mb-2">
+                                    <i class="bi bi-check-circle-fill me-2"  style="color: #F59E0B"></i>
+                                    <strong>Create Categories:</strong> Add personalized categories to organize your
+                                    transactions more effectively.
+                                </li>
+                                <li class="mb-2">
+                                    <i class="bi bi-check-circle-fill me-2"  style="color: #F59E0B"></i>
+                                    <strong>View Category List:</strong> Browse all your available categories in one
+                                    place.
+                                </li>
+                                <li>
+                                    <i class="bi bi-check-circle-fill me-2"  style="color: #F59E0B"></i>
+                                    <strong>Delete Categories:</strong> Remove unused or unwanted categories whenever
+                                    you want.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+<!-- Call to Action Section -->
+<section class="py-5 text-white text-center nav-bar-geo text-general-geo">
+  <div class="container">
+    {% if user.is_authenticated %}
+              <i class="bi bi-graph-up-arrow fs-1 mb-3 d-block text-white"></i>
+      <h2 class="fw-bold mb-3">Welcome back, {{ user.username }}!</h2>
+      <p class="lead mb-4">Jump right back into managing your finances efficiently.</p>
+      <a href="{% url 'dashboard' %}" class="btn btn-outline-light btn-lg rounded-pill px-4">
+        Go to Dashboard
+      </a>
+    {% else %}
+      <i class="bi bi-rocket-takeoff-fill fs-1 mb-3 d-block text-white"></i>
+      <h2 class="fw-bold mb-3">Ready to Take Control of Your Finances?</h2>
+      <p class="lead mb-4">Sign up and start tracking your income and expenses with ease.</p>
+      <a href="{% url 'create-user' %}" class="btn btn-outline-light btn-lg rounded-pill px-4">Get Started for Free</a>
+    {% endif %}
+  </div>
+</section>
+
 {% endblock %}

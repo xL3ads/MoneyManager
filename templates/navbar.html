@@ -1,19 +1,16 @@
 {% load static %}
 <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
-<nav class="navbar navbar-expand-lg nav-bar-geo" data-bs-theme="dark">
+<nav class="navbar navbar-expand-lg nav-bar-geo shadow fixed-top" data-bs-theme="dark">
     <div class="container-fluid">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav me-auto">
+            <ul class="navbar-nav me-auto align-items-center">
                 <li>
                     <a class="navbar-brand" href="{% url 'homepage' %}">
-                    <img src="{% static '/images/logo.png' %}" width="55" height="55" alt="LogoMoneyManager">
-                    <span class="ms-3 text-navbar-mm-geo">
-                        Money Manager
-                    </span>
+                    <img src="{% static '/images/logo.png' %}" class="img-fluid" style="max-height:45px;" alt="LogoMoneyManager">
                     </a>
                 </li>
                 {% if user.is_authenticated %}
@@ -48,7 +45,7 @@
                 {% if user.is_authenticated %}
                     <li>
                         <span class="text-navbar-geo">
-                            Balance: {{ total_money|floatformat:0 }} RON
+                            Balance: {{ total_money|floatformat:0 }} RON |
                         </span>
                     </li>
                     <li>
