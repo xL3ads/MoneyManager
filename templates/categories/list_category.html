@@ -10,18 +10,18 @@
                 <table class="table table-striped table-bordered">
                     <thead class="thead-dark">
                         <tr>
-                            <th>Name</th>
-                            <th>Type</th>
-                            <th>Action</th>
+                            <th class="text-general-geo">Name</th>
+                            <th class="text-general-geo">Type</th>
+                            <th class="text-general-geo">Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         {% for category in all_categories %}
                             <tr>
-                                <td>{{ category.name }}</td>
-                                <td>{{ category.get_is_income_display }}</td>
-                                <td>
-                                    <a href="{% url 'delete-category' category.id %}">Delete</a>
+                                <td class="text-tabele-geo">{{ category.name }}</td>
+                                <td class="text-tabele-geo">{{ category.get_is_income_display }}</td>
+                                <td class="text-center text-tabele-geo">
+                                    <a href="{% url 'delete-category' category.id %}" type="btn" class="btn btn-outline-danger rounded-pill">Delete</a>
                                 </td>
                             </tr>
                         {% endfor %}

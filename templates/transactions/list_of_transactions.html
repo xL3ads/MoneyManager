@@ -23,15 +23,19 @@
                     </thead>
                     <tbody class="text-tabele-geo">
                         {% for transaction in all_transactions %}
-                            <tr>
+
                                 <td>{{ transaction.category.name }}</td>
-                                <td>
+
                                     {% if transaction.category.is_income %}
+                                        <td style="font-weight: bold; color: limegreen">
                                         Income
+                                        </td>
                                     {% else %}
+                                        <td style="font-weight: bold ;color: red">
                                         Expense
+                                        </td>
                                     {% endif %}
-                                </td>
+
                                 <td>{{ transaction.amount }} RON</td>
                                 <td>{{ transaction.description }}</td>
                                 <td>{{ transaction.date }}</td>
