@@ -50,3 +50,4 @@ class UserEditView(LoginRequiredMixin, UpdateView):
     model = User
     form_class = UserForm
     success_url = ''
+    excluded_fields = ['password']

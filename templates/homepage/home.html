@@ -8,7 +8,7 @@
     <div class="container-fluid p-0 text-general-geo">
         <div class="position-relative text-white">
             <img src="{% static 'images/hero-image.jpg' %}" class="img-fluid w-100"
-                 style="height: 100vh; object-fit: cover;" alt="Hero Image">
+                 style="height: 75vh; object-fit: cover;" alt="Hero Image">
 
             <!-- Overlay pentru mai mult contrast -->
             <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-50"></div>
@@ -58,7 +58,7 @@
                             </ul>
                         </div>
                         <div class="text-center mb-3 mt-auto">
-                            <a href="#" class="btn btn-success btn-sm border-0 rounded-pill px-4" style="background: #6366F1">Try this feature</a>
+                            <a href="{% url 'dashboard' %}" class="btn btn-success btn-sm border-0 rounded-pill px-4" style="background: #6366F1">Try this feature</a>
                         </div>
                     </div>
                 </div>

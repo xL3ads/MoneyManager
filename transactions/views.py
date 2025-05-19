@@ -4,7 +4,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
 from django.shortcuts import render
 from django.views import View
-from django.views.generic import ListView, CreateView, UpdateView, DetailView, DeleteView
+from django.views.generic import ListView, CreateView, UpdateView, DetailView, DeleteView, TemplateView
 
 from categories.models import UserCategory
 from transactions.forms import TransactionForm, TransactionUpdateForm
@@ -50,13 +50,27 @@ class TransactionListView(LoginRequiredMixin, ListView):
 
     def get_queryset(self):
         # Filtrare tranzacții după utilizatorul curent
-        return UserTransactions.objects.filter(user=self.request.user)
+        transactions = UserTransactions.objects.filter(user=self.request.user)
+
+        # primesc informatiile din formular
+        filter_year = self.request.GET.get('year')
+        filter_month = self.request.GET.get('month')
+
+
+        # toate tranzactiile mele sunt filtrate in aceasta ordine An -> Luna
+        if filter_year:
+            transactions = transactions.filter(date__year=filter_year)
+
+        if filter_month:
+            transactions = transactions.filter(date__month=filter_month)
+
+        return transactions
+
 
     def get_context_data(self, **kwargs):
         data = super().get_context_data(**kwargs)
         data['categories'] = UserCategory.objects.all()
         return data
-
 
 class TransactionUpdateView(LoginRequiredMixin, UpdateView):
     template_name = 'transactions/update_transaction.html'
@@ -72,5 +86,6 @@ class TransactionDeleteView(LoginRequiredMixin, DeleteView):
     template_name = 'transactions/delete_transaction.html'
     model = UserTransactions
     success_url = '/list_of_transactions/'
+
 
 

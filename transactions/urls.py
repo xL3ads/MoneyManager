@@ -1,7 +1,8 @@
 from django.urls import path
 
 from transactions import views
-from transactions.views import TransactionCreateView,TransactionDetailView,TransactionUpdateView,TransactionDeleteView
+from transactions.views import (TransactionCreateView, TransactionDetailView, TransactionUpdateView,
+                                TransactionDeleteView)
 
 urlpatterns = [
     path('add_transaction/',views.TransactionCreateView.as_view(), name='add-transaction'),
