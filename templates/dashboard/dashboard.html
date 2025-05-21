@@ -5,12 +5,12 @@
 
 {% block content %}
     <br>
-    <div class="container-fluid"><br>
+    <div class="container-fluid px-3"><br>
         <div class="row">
-            <div class="col-md-8 offset-2">
+            <div class="col-lg-8 col-md-10 col-sm-12 mx-auto">
                 <h3 class="title-geo text-center">{{ full_name }} Profile</h3>
                 <br>
-                <div class="card shadow-sm mt-2" style="max-width: 400px; margin: auto;">
+                <div class="card shadow-sm mt-2 mx-auto w-100" style="max-width: 500px;">
                     <div class="card-body">
                         <h5 class="card-title text-center text-general-geo">Select Month & Year</h5>
                         <form method="GET">
@@ -51,26 +51,28 @@
                     </div>
                 </div>
                 <br>
-                <table class="table">
-                    <thead class="thead-dark text-tabele-titlu-geo">
-                    <tr>
-                        <th>Category Name</th>
-                        <th>Description</th>
-                        <th>Amount</th>
-                        <th>Date</th>
-                    </tr>
-                    </thead>
-                    <tbody class="text-tabele-geo">
-                    {% for data in all_data %}
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead class="thead-dark text-tabele-titlu-geo">
                         <tr>
-                            <td>{{ data.category.name }}</td>
-                            <td>{{ data.description }}</td>
-                            <td>{{ data.amount }} RON</td>
-                            <td>{{ data.date }}</td>
+                            <th>Category Name</th>
+                            <th>Description</th>
+                            <th>Amount</th>
+                            <th>Date</th>
                         </tr>
-                    {% endfor %}
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody class="text-tabele-geo">
+                        {% for data in all_data %}
+                            <tr>
+                                <td>{{ data.category.name }}</td>
+                                <td>{{ data.description }}</td>
+                                <td>{{ data.amount }} RON</td>
+                                <td>{{ data.date }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>

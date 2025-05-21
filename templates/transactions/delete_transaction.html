@@ -1,21 +1,31 @@
 {% extends 'base.html' %}
 
-{% block title %}MoneyManager | Add Transaction{% endblock %}
+{% block title %}MoneyManager | Delete Transaction{% endblock %}
 
 {% block content %}
-    <div class="container-fluid">
-        <br>
-        <div class="row">
-            <div class="col-md-8 offset-2">
-                <h4 class="text-general-geo">
-                    Are you sure you want to delete this transaction {{ usertransactions }}
-                </h4>
-                <form method="POST">
-                    {% csrf_token %}
-                    {{ form }}
-                    <button type="submit" class="btn btn-outline-danger text-general-geo">Yes</button>
-                </form>
+<div class="container-fluid px-3">
+    <br>
+    <div class="row">
+        <div class="col-lg-8 col-md-10 col-sm-12 mx-auto">
+            <div class="card shadow-sm">
+                <div class="card-body text-center text-general-geo">
+                    <h4>
+                        Are you sure you want to delete this transaction:<br>
+                        <strong>{{ usertransactions }}</strong>?
+                    </h4>
+                    <form method="POST" class="mt-4">
+                        {% csrf_token %}
+                        {{ form }}
+                        <button type="submit" class="btn btn-outline-danger text-general-geo px-4">
+                            Yes, Delete
+                        </button>
+                        <a href="{% url 'homepage' %}" class="btn btn-outline-secondary ms-2">
+                            Cancel
+                        </a>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
+</div>
 {% endblock %}

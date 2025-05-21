@@ -5,29 +5,27 @@
 {% block title %}MoneyManager | Edit Profile{% endblock %}
 
 {% block content %}
-    <div class="container-fluid">
-        <br>
-        <div class="row">
-            <div class="col-md-8 offset-2">
-                <div class="card shadow-sm mt-2">
-                    <div class="card-header text-dark border-0 text-center geo-color-bar">
-                        <span class="title-geo" style="color: white">
-                            Edit {{ user.first_name }}'s Profile
-                        </span>
-                    </div>
-                    <form method="POST">
-                    <div class="card-body mb-3 text-general-geo">
-                            {% csrf_token %}
-                            {{ form }}
-
-                    </div>
-                        <div class="text-center mb-1 text-general-geo">
-                            <button type="submit" class="btn btn-outline-success">SAVE</button>
-                        </div>
-                    </form>
+<div class="container-fluid px-3">
+    <br>
+    <div class="row justify-content-center">
+        <div class="col-lg-8 col-md-10 col-sm-12">
+            <div class="card shadow-sm mt-2">
+                <div class="card-header text-dark border-0 text-center geo-color-bar">
+                    <span class="title-geo text-white">
+                        Edit {{ user.first_name }}'s Profile
+                    </span>
                 </div>
-
+                <form method="POST" class="p-3">
+                    <div class="card-body mb-3 text-general-geo">
+                        {% csrf_token %}
+                        {{ form }}
+                    </div>
+                    <div class="text-center mb-1 text-general-geo">
+                        <button type="submit" class="btn btn-outline-success px-4">SAVE</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
+</div>
 {% endblock %}

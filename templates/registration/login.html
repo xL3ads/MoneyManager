@@ -5,32 +5,30 @@
 {% block title %}MoneyManager | Login{% endblock %}
 
 {% block content %}
-    <div class="container-lg">
-        <br>
-        <div class="row">
-            <div class="col-md-8 offset-2">
-                <div class="card shadow-sm mt-2">
-                    <div class="card-header text-dark border-0 text-center geo-color-bar">
-                        <span class="title-geo" style="color: white">
-                            Login Menu
-                        </span>
-                    </div>
-                    <form method="POST">
-                    <div class="card-body mb-3 text-general-geo">
-                            {% csrf_token %}
-                            {{ form }}
-
-                    </div>
-                        <div class="text-center mb-1 text-general-geo">
-                            <div class="text-center">
-                                <a href="{% url 'password_reset' %}">Reset password</a>
-                            </div>
-                            <button type="submit" class="btn btn-outline-success">Login</button>
-                        </div>
-                    </form>
+<div class="container-fluid px-3">
+    <br>
+    <div class="row justify-content-center">
+        <div class="col-lg-5 col-md-7 col-sm-9 col-11">
+            <div class="card shadow-sm mt-2">
+                <div class="card-header text-center geo-color-bar">
+                    <span class="title-geo" style="color: white;">
+                        Login Menu
+                    </span>
                 </div>
-
+                <form method="POST" class="p-3">
+                    <div class="card-body mb-3 text-general-geo">
+                        {% csrf_token %}
+                        {{ form }}
+                    </div>
+                    <div class="text-center mb-3 text-general-geo">
+                        <a href="{% url 'password_reset' %}">Reset password</a>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-outline-success px-4">Login</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
+</div>
 {% endblock %}
